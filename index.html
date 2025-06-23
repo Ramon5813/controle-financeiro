@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Controle Financeiro</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>💸 Controle Financeiro</h1>
+
+        <!-- Seletor de mês -->
+        <label for="mes">Selecione o mês:</label>
+        <select id="mes" name="mes">
+            <option value="2025-06">Junho/2025</option>
+            <option value="2025-07">Julho/2025</option>
+            <option value="2025-08">Agosto/2025</option>
+            <option value="2025-09">Setembro/2025</option>
+            <option value="2025-10">Outubro/2025</option>
+            <option value="2025-11">Novembro/2025</option>
+            <option value="2025-12">Dezembro/2025</option>
+        </select>
+
+        <!-- Montante inicial do mês -->
+        <label for="montante-inicial">Montante inicial do mês:</label>
+        <input type="number" id="montante-inicial" placeholder="Montante inicial do mês" />
+
+        <button id="salvar-montante">Salvar Montante</button>
+
+        <!-- Formulário para adicionar transações -->
+        <form id="transacao-form">
+            <input type="text" id="descricao" placeholder="Descrição" required autocomplete="off" />
+            <input type="number" id="valor" placeholder="Valor (ex: -100 ou 200)" required step="0.01" />
+            <select id="categoria" required>
+                <option value="">Categoria</option>
+                <option value="Alimentação">🍎 Alimentação</option>
+                <option value="Lazer">🎉 Lazer</option>
+                <option value="Trabalho">💼 Trabalho</option>
+                <option value="Cartões">💳 Cartões</option>
+                <option value="Aluguel">🏠 Aluguel</option>
+                <option value="Dívidas Fixas">📄 Dívidas Fixas</option>
+                <option value="Outros">📦 Outros</option>
+            </select>
+            <input type="date" id="data" required />
+            <button type="submit">Adicionar</button>
+        </form>
+
+        <!-- Mensagens -->
+        <div id="mensagem" role="alert" aria-live="polite" style="margin-bottom: 15px;"></div>
+
+        <!-- Botões de ações -->
+        <button id="limpar-transacoes" style="background:#ff4d4d; color:#fff; border:none; padding:10px; border-radius:5px; cursor:pointer;">
+            Limpar todas transações
+        </button>
+
+        <!-- Saldo e transações -->
+        <div id="saldo">Saldo: R$ 0,00</div>
+        <ul id="lista-transacoes"></ul>
+
+        <!-- Gráfico -->
+        <canvas id="grafico"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
